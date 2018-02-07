@@ -20,6 +20,10 @@ class UserProfessor extends Model
         return $this->belongsToOne(User::class);
     }
 
+    public function display_pictures()
+    {
+        return $this->belongsToOne(DisplayPicture::class);
+    }
 
 
 

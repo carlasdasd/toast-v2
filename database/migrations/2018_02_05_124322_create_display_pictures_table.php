@@ -17,7 +17,7 @@ class CreateDisplayPicturesTable extends Migration
             $table->increments('id');
 
             $table->integer('id_number');
-
+            $table->binary('image');
             $table->timestamps();
         });
     }

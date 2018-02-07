@@ -28,7 +28,7 @@ class HomeController extends Controller
         if ($request->user()->hasRole('administrator')){
             return view('adminHome');
         } else if ($request->user()->hasRole('professor')){
-                return view('professor');
+                return view('adminHome');
         } else if ($request->user()->hasRole('student')){
                     return view('studentHome');
         } else{

@@ -8,5 +8,12 @@ class DisplayPicture extends Model
 {
     //
 
+    public function user_professors()
+    {
+        return $this->belongsToOne(User_Professor::class);
+    }
 
+    protected $fillable = [
+        ''
+    ];
 }

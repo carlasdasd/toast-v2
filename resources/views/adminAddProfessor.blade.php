@@ -102,7 +102,7 @@
                     <div class="person">
                         <div>
                             <img src="{{ asset('img/img_avatar.png') }}" class="img-responsive" alt="Avatar">
-                            <input class="form-control" type="file" multiple>
+                            <input class="form-control" type="file" name="image" >
                             <div class="input-group">
                                 <input type="submit" class="btn btn-success btn-lg btn-reg" value="Done"> &nbsp;<span class="glyphicon glyphicon-send"></span>
                             </div>

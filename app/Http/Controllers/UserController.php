@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\UserProfessor;
 use App\Role;
+use App\DisplayPicture;
 use Carbon\Carbon;
 
 class UserController extends Controller
@@ -49,6 +50,7 @@ class UserController extends Controller
         $email = $request->input('email');
         $idNumber= $request->input('id_number');
         $birthdate = '08/21/1998';
+        $image = $request->input('image');
         $format = preg_replace('/\s+/', '', $firstname);
 
         $userTable = new User();
@@ -70,6 +72,11 @@ class UserController extends Controller
         $profTable->first_name = $firstname;
         $profTable->middle_name = $middlename;
         $profTable->save();
+
+        $picture = new DisplayPicture();
+        $picture->professor_number = $idNumber;
+        $picture->image = $image;
+        $picture->save();
 
 
 
