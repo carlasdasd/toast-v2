@@ -22,9 +22,13 @@ class RouteController extends Controller
    }
 
    public function addProfessor(){
-
-         return view('adminAddProfessor');
-
+         return view('adminAddProf');
    }
+
+    public function addStudent(){
+        return view('adminAddStudent');
+    }
+
+
 
 }

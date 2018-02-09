@@ -9,7 +9,7 @@ class UserProfessor extends Model
     //
 
     protected $fillable = [
-        'professor_number','last_name','first_name','middle_name',
+        'professor_number','last_name','first_name','middle_name','display_image','birthdate'
     ];
 
     protected $primaryKey = 'id';
@@ -17,13 +17,16 @@ class UserProfessor extends Model
 
     public function users()
     {
-        return $this->belongsToOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function display_pictures()
     {
-        return $this->belongsToOne(DisplayPicture::class);
+        return $this->belongsTo(DisplayPicture::class);
     }
+
+
+
 
 
 

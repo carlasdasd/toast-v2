@@ -39,9 +39,9 @@
                     <img class="profile-img" src="{{ asset('img/Lock.png') }}"
                          alt="">
 
-                    @if (session('status'))
+                    @if (Session::has('status'))
                         <div class="alert alert-success" style="text-align: center">
-                            {{ session('status') }}
+                            {{ Session::get('status') }}
                         </div>
                     @endif
                     <form class="form-signin" method="POST" action="{{ route('password.email') }}">

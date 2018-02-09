@@ -1,7 +1,6 @@
 @extends('layouts.base')
-@section('Title','Forgot Password')
+@section('Title','Add Students')
 @section('head')
-
     <!-- Bootstrap -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -9,7 +8,6 @@
     <script src='https://www.google.com/recaptcha/api.js'>
     </script>
     <link rel="stylesheet" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}">
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -17,6 +15,8 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 @endsection
+
+@section('body')
 <body>
 
 <div class="wrapper">
@@ -27,8 +27,8 @@
         </div>
 
         <ul class="list-unstyled components margin-top-n40">
-            <li  class="active">
-                <a href="admin-db.html">Home</a>
+            <li>
+                <a href="{{ url('home') }}">Home</a>
             </li>
             <li>
                 <a href="#profSubmenu" data-toggle="collapse" aria-expanded="false">Professor</a>
@@ -37,11 +37,11 @@
                     <li><a href="{{ url('home/view_professor') }}">View professors</a></li>
                 </ul>
             </li>
-            <li>
+
+            <li class="active">
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Student</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li><a href="{{ url('home/add_student') }}">Add student</a></li>
-                    <li><a href="{{ url('home/view_student') }}">View student</a></li>
+                    <li><a href="#">Add student</a></li>
                 </ul>
             </li>
             <li>
@@ -63,10 +63,6 @@
                     {{ csrf_field() }}
                 </form>
             </li>
-
-
-
-
         </ul>
     </nav>
 
@@ -86,12 +82,32 @@
         </nav>
 
 
+        <header>
+            <h1>Add Student</h1>
+            <div class="line"></div>
+        </header>
+
+        <div class="row ">
+            <form class="form-reg padding-right-90">
+                <div class="col-md-4 margin-top-100">
+                    <p>Upload .csv file here</p>
+                    <input class="form-control pull-right" type="file" multiple>
+                </div>
+                <div class="col-md-1 margin-top-145"><p>OR</p></div>
+                <div class="col-md-4  margin-top-10">
+                    <p>Add a student</p>
+                    <input type="text" class="form-control" placeholder="First Name" required autofocus>
+                    <input type="text" class="form-control" placeholder="Last Name" required>
+                    <input type="text" class="form-control" placeholder="Middle Name" required>
+                    <input type="text" class="form-control" placeholder="Email" required>
+                    <input type="text" class="form-control" placeholder="ID no." required>
+                    <input type="date" class="form-control" placeholder="Birthdate." required>
+                    <button type="button" class="btn btn-success btn-lg btn-stud">Done &nbsp;<span class="glyphicon glyphicon-send"></span></button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-
-
-
-
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -100,4 +116,8 @@
 <script src="{{ asset('js/custom.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 </body>
-</html>
+
+@endsection
+
+
+

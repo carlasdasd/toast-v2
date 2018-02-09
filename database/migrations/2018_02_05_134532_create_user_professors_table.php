@@ -24,6 +24,7 @@ class CreateUserProfessorsTable extends Migration
             $table->string('first_name');
             $table->string('middle_name');
             $table->date('birthdate');
+            $table->binary('display_image');
             $table->timestamps();
         });
     }

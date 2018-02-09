@@ -14,6 +14,11 @@
 Route::get('/', 'RouteController@login');
 Route::get('home/add_professor', 'RouteController@addProfessor');
 Route::post('home/add_professor','UserController@createProfessor')->name('createProfessor');
+Route::get('home/view_professor','UserController@viewProfessor');
+Route::get('home/add_student', 'RouteController@addStudent');
+Route::post('home/add_student','UserController@createStudent')->name('createStudent');
+Route::get('home/view_student','UserController@viewStudent');
+
 
 Route::resource('users','UserController');
 Route::get('home', 'HomeController@index')->middleware('revalidate');
@@ -32,7 +37,7 @@ Route::get('home', 'HomeController@index')->middleware('revalidate');
         Route::post('register', 'Auth\RegisterController@register');
 
         // Password Reset Routes...
-        Route::get('forgot', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+        Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
         Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
         Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
         Route::post('password/reset', 'Auth\ResetPasswordController@reset');

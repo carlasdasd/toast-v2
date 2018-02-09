@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('Title','Admin Home')
+@section('Title','Add Professors')
 @section('head')
 
     <!-- Bootstrap -->
@@ -13,8 +13,8 @@
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
     <![endif]-->
 
 @endsection
@@ -35,26 +35,35 @@
             <li class="active">
                 <a href="#profSubmenu" data-toggle="collapse" aria-expanded="false">Professor</a>
                 <ul class="collapse list-unstyled" id="profSubmenu">
-                    <li><a href="admin-addprofessor.html">Add professor</a></li>
-                    <li><a href="admin-professor.html">View professors</a></li>
+                    <li><a href="{{ url('home/add_professor') }}">Add professor</a></li>
+                    <li><a href="{{ url('home/view_professor') }}">View professors</a></li>
                 </ul>
             </li>
+
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Student</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li><a href="#">Page 1</a></li>
-                    <li><a href="#">Page 2</a></li>
-                    <li><a href="#">Page 3</a></li>
+                    <li><a href="#">Add student</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#">Portfolio</a>
+                <a href="#courseSubMenu" data-toggle="collapse" aria-expanded="false">Course</a>
+                <ul class="collapse list-unstyled" id="courseSubmenu">
+                    <li><a href="#">Add course</a></li>
+                    <li><a href="#">View course</a></li>
+                </ul>
             </li>
             <li>
-                <a href="#">Contact</a>
-            </li>
-            <li>
-                <a href="{{ route('logout') }}">Logout</a>
+
+                <a href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
             </li>
 
         </ul>
@@ -88,23 +97,25 @@
                 {{ session('info') }}
 
             @endif
-            <form class="form-reg" method="POST" action="{{  route('createProfessor') }}">
+            <form class="form-reg" method="POST" enctype="multipart/form-data" action="{{  route('createProfessor') }}">
                 {{ csrf_field() }}
                 <div class="col-md-4 margin-right-50 margin-top-20">
 
                     <input type="text" class="form-control" name="firstname" placeholder="First Name" required autofocus>
-                    <input type="text" class="form-control" name="lastname" placeholder="Last Name" required>
                     <input type="text" class="form-control" name="middlename" placeholder="Middle Name" required>
-                    <input type="text" class="form-control" name="email"placeholder="Email" required>
+                    <input type="text" class="form-control" name="lastname" placeholder="Last Name" required>
+                    <input type="text" class="form-control" name="email" placeholder="Email" required>
                     <input type="text" class="form-control" name="id_number" placeholder="ID no." required>
+                    <input type="date" class="form-control" name="birthdate" placeholder="Birthdate" required>
                 </div>
                 <div class="col-md-6">
                     <div class="person">
                         <div>
                             <img src="{{ asset('img/img_avatar.png') }}" class="img-responsive" alt="Avatar">
-                            <input class="form-control" type="file" name="image" >
+                            <input class="form-control" type="file" name="file" id="file" >
                             <div class="input-group">
-                                <input type="submit" class="btn btn-success btn-lg btn-reg" value="Done"> &nbsp;<span class="glyphicon glyphicon-send"></span>
+                                <input type="submit" class="btn btn-success btn-lg btn-reg" value="Done"/>
+                                &nbsp;<i class="glyphicon glyphicon-send"></i>
                             </div>
                         </div>
                     </div>

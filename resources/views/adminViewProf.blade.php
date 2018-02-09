@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('Title','Forgot Password')
+@section('Title','View Professors')
 @section('head')
 
     <!-- Bootstrap -->
@@ -9,7 +9,6 @@
     <script src='https://www.google.com/recaptcha/api.js'>
     </script>
     <link rel="stylesheet" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}">
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -17,6 +16,7 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 @endsection
+@section('body')
 <body>
 
 <div class="wrapper">
@@ -27,21 +27,21 @@
         </div>
 
         <ul class="list-unstyled components margin-top-n40">
-            <li  class="active">
-                <a href="admin-db.html">Home</a>
-            </li>
             <li>
+                <a href="{{ url('home') }}">Home</a>
+            </li>
+            <li class="active">
                 <a href="#profSubmenu" data-toggle="collapse" aria-expanded="false">Professor</a>
                 <ul class="collapse list-unstyled" id="profSubmenu">
                     <li><a href="{{ url('home/add_professor') }}">Add professor</a></li>
                     <li><a href="{{ url('home/view_professor') }}">View professors</a></li>
                 </ul>
             </li>
+
             <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Student</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li><a href="{{ url('home/add_student') }}">Add student</a></li>
-                    <li><a href="{{ url('home/view_student') }}">View student</a></li>
+                    <li><a href="#">Add student</a></li>
                 </ul>
             </li>
             <li>
@@ -63,10 +63,6 @@
                     {{ csrf_field() }}
                 </form>
             </li>
-
-
-
-
         </ul>
     </nav>
 
@@ -85,6 +81,48 @@
             </div>
         </nav>
 
+        <header>
+            <h1>View Professors</h1>
+            <div class="line"></div>
+        </header>
+
+
+                <div class="row">
+            <ul>
+
+
+
+                @foreach($users as $user)
+                    <li class="service-list margin-top-20">
+                        <a href="#" data-toggle="modal" data-target="#myModal">
+                            <img class="list-image" src="{{ asset('storage'. substr($user->display_image,6)) }} ">
+                            <h4> {{  $user->first_name .' '. $user->last_name}}</h4></a>
+                    </li>
+                @endforeach
+
+
+                {{--<li class="service-list">--}}
+                    {{--<a href="#" data-toggle="modal" data-target="#myModal"><img src="{{ asset('img/img_avatar.png') }}" alt="icon" class="list-image" />--}}
+                        {{--<h4>Engr. Angelo Valte</h4></a>--}}
+                {{--</li>--}}
+
+                {{--<li class="service-list margin-top-20">--}}
+                    {{--<a href=""><img src="{{ asset('img/img_avatar.png') }}" alt="icon" class="list-image" />--}}
+                        {{--<h4>Engr. Gab Bucu</h4></a>--}}
+                {{--</li>--}}
+
+                {{--<li class="service-list margin-top-20">--}}
+                    {{--<a href=""><img src="{{ asset('img/img_avatar2.png') }}" alt="icon" class="list-image" />--}}
+                        {{--<h4>Engr. Samuel</h4></a>--}}
+                {{--</li>--}}
+
+                {{--<li class="service-list margin-top-20">--}}
+                    {{--<a href=""><img src="{{ asset('img/img_avatar2.png') }}" alt="icon" class="list-image" />--}}
+                        {{--<h4>Engr. Paolo </h4></a>--}}
+                {{--</li>--}}
+            </ul>
+            <!-- End  -->
+        </div>
 
     </div>
 </div>
