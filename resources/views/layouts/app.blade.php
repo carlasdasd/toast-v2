@@ -12,6 +12,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style2.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/resolution2.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans|PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}">
 </head>
 <body>
     <div id="app">

@@ -39,12 +39,12 @@ class User extends Authenticatable
 
     public function user_professors()
     {
-        return $this->belongsToOne(UserProfessor::class);
+        return $this->hasOne(UserProfessor::class,'professor_number','id_number');
     }
 
     public function user_students()
     {
-        return $this->belongsToOne(UserStudent::class);
+        return $this->hasOne(UserStudent::class,'student_number','id_number');
     }
     /**
     * @param string|array $roles

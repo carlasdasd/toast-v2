@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserProfessor extends Model
 {
-    //
 
     protected $fillable = [
         'professor_number','last_name','first_name','middle_name','display_image','birthdate'
@@ -17,19 +16,8 @@ class UserProfessor extends Model
 
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class,'id_number','professor_number');
     }
-
-    public function display_pictures()
-    {
-        return $this->belongsTo(DisplayPicture::class);
-    }
-
-
-
-
-
-
 
 }
 

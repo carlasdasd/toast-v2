@@ -29,6 +29,17 @@ class RouteController extends Controller
         return view('adminAddStudent');
     }
 
+    public function addCourse(){
+         return view('adminAddCourse');
+    }
+
+    public function addRubrics(){
+         return view('adminAddRubrics');
+    }
+
+    public function semesterStatus(){
+         return view('adminSemStatus');
+    }
 
 
 }

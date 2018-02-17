@@ -62,6 +62,11 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
+        'uploads' => [
+            'driver' => 'local',
+            'root'   => base_path().'/public_html/uploads',
+        ],
+
 
     ],
 

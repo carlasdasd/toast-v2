@@ -25,6 +25,6 @@ class UserStudent extends Model
 
     public function users()
     {
-        return $this->belongsToOne(User::class);
+        return $this->hasOne(User::class,'id_number','student_number');
     }
 }

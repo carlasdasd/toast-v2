@@ -17,8 +17,12 @@ Route::post('home/add_professor','UserController@createProfessor')->name('create
 Route::get('home/view_professor','UserController@viewProfessor');
 Route::get('home/add_student', 'RouteController@addStudent');
 Route::post('home/add_student','UserController@createStudent')->name('createStudent');
+Route::post('home/add_student/upload','UserController@uploadStudent')->name('uploadStudent');
 Route::get('home/view_student','UserController@viewStudent');
-
+Route::get('home/add_course','RouteController@addCourse');
+Route::get('home/add_rubrics','RouteController@addRubrics');
+Route::get('home/sem_settings','StatusController@view');
+Route::post('home/sem_settings','StatusController@update')->name('updateStatus');
 
 Route::resource('users','UserController');
 Route::get('home', 'HomeController@index')->middleware('revalidate');
